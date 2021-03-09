@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type"; content="multipart/form-data; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="CTcatalog.css" />
+</head>
+<body>
+    <div id="app" class="all-back">
+        <div>
+            <div class="title">小黄网盘</div>
+            <el-button class="cancel" @click="cancelID">注销账户</el-button>
+        </div>
+        <el-breadcrumb class="pathmenu" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item v-for="(item, index) in toNextList">
+                <span class="pathname" @click="toCurrentFolder(item, index)">{{item.name}}</span>
+            </el-breadcrumb-item>
+        </el-breadcrumb>
+        <el-table :border="true" :data="tableData" style="width: 100%; margin: 15px 0;">
+            <el-table-column prop="fileName" label="名称" width="250">
+                <template slot-scope="scope">
+                    <span>{{scope.row.fileName}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column prop="user.username" label="上传者信息" width="200">
+            </el-table-column>
+        </el-table-column>
+        <el-table-column prop="size" label="图片大小 KB" width="180">
+        </el-table-column>
+    </el-table-column>
+    <el-table-column prop="uploadTime" label="上传时间" width="180">
+    </el-table-column>
+            <el-table-column fixed="right" label="操作" width="300">
+            <template slot-scope="scope">
+                <el-button size="mini" type="danger" @click="deleteRow(scope.row.fileId)">删除</el-button>
+                <el-button size="mini" type="danger" @click="passRow(scope.row.fileId)">通过</el-button>
+                <el-button size="mini" type="danger" @click="openRow(scope.row.fileId)">查看图片</el-button>
+            </template>
+            </el-table-column>
+        </el-table>
+        <el-pagination background layout="prev, pager, next" :page-size="10" :total="pageTotalCount"  @current-change="changePage">
+        </el-pagination>
+        <el-dialog  title="查看图片" :visible.sync="dialogTableVisible">
+            <img width="550px" height="350px" :src="curImg" />
+        </el-dialog>
+    </div>
+
+</body>
+<script src="CTcatalog.js"></script>

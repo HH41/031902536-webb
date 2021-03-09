@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web</title>        
+    <link rel="stylesheet" type="text/css" href="controller.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="all-back">
+        <div >
+            <img class="background" src="background.jpg" >
+            <a class="title">小黄网盘</a>
+            <div class="forms">
+            <div>
+                <a  style=" margin-left: 75px;font-size: 23px;color: rgb(238, 184, 134);">账号密码登录</a>
+                <br/><br/>
+                <input type="text" placeholder="请输入账号" v-model="username">
+                <input type="password" placeholder="请输入密码" v-model="password">
+                <br/><br/>
+                <input type="submit"  value="登录" @click="toLoginCon()">
+                <br/>
+               
+            </div>
+        </div>
+        </div>
+    </div>
+
+</body>
+<script src="controller.js"></script>

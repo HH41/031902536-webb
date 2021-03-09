@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <title>web</title>        
+    <link rel="stylesheet" type="text/css" href="web.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="all-back">
+        <div >
+            <img class="background" src="register.jpg" >
+            <a class="title">小黄网盘</a>
+            <div class="form-register"  >
+                <div>
+                    <a class="message-title">欢迎注册</a>
+                    <br/><br/>
+                    <a class="info">用户名:</a>
+                    <input class="in-register" type="text" v-model="username">
+                    <a class="info">密码:</a>
+                    <input class="in-register" type="password" v-model="password">
+                    <a class="info">验证码:</a>
+                    <input class="in-register" type="text" v-model="code">
+                    <img src="http://network.vip3gz.idcfengye.com/kaptcha" class="check" alt="">
+                    <br/><br/>
+                    <input type="button" value="立即注册" @click="toRegister()">
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+<script src="vue.js"></script>
